@@ -2,6 +2,7 @@ from tldr import secret
 from urllib.request import Request, urlopen
 import json
 from summarizer import summary_tool
+from bs4 import BeautifulSoup as bs4
 
 
 AZURE_URL = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases"
@@ -86,3 +87,11 @@ def extract_summary(text):
         return text
 
     return summary
+
+
+def scrape_url(url):
+    html = urlopen(url).read()
+    soup = bs4(html, "html.parser")
+    texts = soup.find('p').getText()
+
+    return texts
