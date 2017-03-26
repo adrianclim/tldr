@@ -88,15 +88,12 @@ class SummaryTool(object):
         return best_sentence
 
     # Build the summary
-    def get_summary(self, title, content, sentences_dic):
+    def get_summary(self, content, sentences_dic):
 
         # Split the content into paragraphs
         paragraphs = self.split_content_to_paragraphs(content)
 
-        # Add the title
         summary = []
-        summary.append(title.strip())
-        summary.append("")
 
         # Add the best sentence from each paragraph
         for p in paragraphs:
@@ -112,10 +109,6 @@ def main():
 
     # Demo
     # Content from: "http://thenextweb.com/apps/2013/03/21/swayy-discover-curate-content/"
-
-    title = """
-    Swayy is a beautiful new dashboard for discovering and curating online content [Invites]
-    """
 
     content = """
     Lior Degani, the Co-Founder and head of Marketing of Swayy, pinged me last week when I was in California to tell me about his startup and give me beta access. I heard his pitch and was skeptical. I was also tired, cranky and missing my kids – so my frame of mind wasn’t the most positive.
@@ -167,16 +160,16 @@ def main():
     sentences_dic = st.get_senteces_ranks(content)
 
     # Build the summary with the sentences dictionary
-    summary = st.get_summary(title, content, sentences_dic)
+    summary = st.get_summary(content, sentences_dic)
 
     # Print the summary
     print(summary)
 
     # Print the ratio between the summary length and the original length
     print("")
-    print("Original Length %s" % (len(title) + len(content)))
+    print("Original Length %s" % (len(content)))
     print("Summary Length %s" % len(summary))
-    print("Summary Ratio: %s" % (100 - (100 * (len(summary) / (len(title) + len(content))))))
+    print("Summary Ratio: %s" % (100 - (100 * (len(summary) / (len(content))))))
 
 
 if __name__ == '__main__':

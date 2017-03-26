@@ -39,8 +39,8 @@ def search_key_phrase(key_phrase):
             'url': obj['webPages']['value'][0]['url']}
 
 
-def extract_summary(title, text):
+def extract_summary(text):
     st = summary_tool.SummaryTool()
     sentences_dic = st.get_senteces_ranks(text)
-    summary = st.get_summary(title, text, sentences_dic)
+    summary = st.get_summary(text, sentences_dic)
     return summary
