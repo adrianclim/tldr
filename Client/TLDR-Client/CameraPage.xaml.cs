@@ -59,6 +59,7 @@ namespace TLDR_Client
         {
             try
             {
+                SummarizedText.Blocks.Clear();
 
                 CapturedPhoto frame = await CapturePreviewFrame();
 
@@ -114,7 +115,7 @@ namespace TLDR_Client
 
                     var uiContainter = new InlineUIContainer();
                     var button = new Button() { Content = pair.Item2, Background = new SolidColorBrush(Colors.Yellow) };
-                    button.Margin = new Thickness(0, 0, 0, 0);
+                    button.Margin = new Thickness(0, 0, 0, -6);
                     button.Padding = new Thickness(0, 0, 0, 0);
 
                     button.Click += KeyPhraseClick;
@@ -143,7 +144,7 @@ namespace TLDR_Client
 
         }
 
-        private async void KeyPhraseClick(object sender, RoutedEventArgs e)
+        private void KeyPhraseClick(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             var phrase = button.Content as string;
@@ -151,7 +152,7 @@ namespace TLDR_Client
             var dialog = new Flyout()
             {
                 Content = new WebView() { Source = keyPhrase.url, MaxHeight = RootGrid.ActualHeight, MaxWidth = RootGrid.ActualWidth },
-                Placement = Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode.Full
+                Placement = Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode.Bottom,
             };
             button.Flyout = dialog;
             button.Flyout.ShowAt(button);
