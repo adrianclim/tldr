@@ -100,19 +100,20 @@ namespace TLDR_Client
                 var stringParts = summaryString.Split(phrases, StringSplitOptions.RemoveEmptyEntries);
                 keyPhrases = responseObject.key_phrases.ToDictionary(phrase => phrase.phrase);
 
-                var keyPhraseIndices = phrases.Select(phrase => summaryString.IndexOf(phrase)).OrderBy(index => index).ToArray();
+                var keyPhraseIndices = phrases.Select(phrase => new Tuple<int, String>(summaryString.IndexOf(phrase), phrase)).OrderBy(pair => pair.Item1).ToArray();
+
                 var paragraph = new Paragraph();
 
                 var normalStringStartIndex = 0;
-                for (var i = 0; i < phrases.Length; ++i)
+                foreach (var pair in keyPhraseIndices)
                 {
-                    if (normalStringStartIndex < keyPhraseIndices[i])
+                    if (normalStringStartIndex < pair.Item1)
                     {
-                        paragraph.Inlines.Add(new Run() { Text = summaryString.Substring(normalStringStartIndex, keyPhraseIndices[i] - normalStringStartIndex) });
+                        paragraph.Inlines.Add(new Run() { Text = summaryString.Substring(normalStringStartIndex, pair.Item1 - normalStringStartIndex) });
                     }
 
                     var uiContainter = new InlineUIContainer();
-                    var button = new Button() { Content = phrases[i], Background = new SolidColorBrush(Colors.Yellow) };
+                    var button = new Button() { Content = pair.Item2, Background = new SolidColorBrush(Colors.Yellow) };
                     button.Margin = new Thickness(0, 0, 0, 0);
                     button.Padding = new Thickness(0, 0, 0, 0);
 
@@ -120,8 +121,9 @@ namespace TLDR_Client
                     uiContainter.Child = button;
                     paragraph.Inlines.Add(uiContainter);
 
-                    normalStringStartIndex = keyPhraseIndices[i] + phrases[i].Length;
+                    normalStringStartIndex = pair.Item1 + pair.Item2.Length;
                 }
+
 
                 if (normalStringStartIndex < summaryString.Length - 1)
                 {
