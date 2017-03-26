@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from summarizer.analysis import extract_summary
+from summarizer.analysis import extract_summary, extract_key_phrases, search_key_phrase
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 
@@ -14,4 +14,24 @@ class AnalysisRunView(APIView):
     """
     def post(self, request):
         summary = extract_summary("", request.data['content'])
-        return Response({'summary': summary})
+        key_phrases = extract_key_phrases(request.data['content'])
+
+        web_list = []
+        for i in key_phrases:
+            web = search_key_phrase(i)
+            web_list.append({'phrase': i,
+                             'short_name': web['short'],
+                             'url': web['url']})
+
+        return Response({'summary': summary,
+                         'key_phrases': web_list})
+
+
+class KeyPhraseView(APIView):
+    permission_classes = [AllowAny]
+    """
+    Get Key Phrases
+    """
+    def post(self, request):
+        key_phrases = extract_key_phrases(request.data['content'])
+        return Response({'key_phrases': key_phrases})
