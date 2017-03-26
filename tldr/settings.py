@@ -1,3 +1,4 @@
+
 """
 Django settings for tldr project.
 
@@ -25,7 +26,7 @@ SECRET_KEY = 'o$6@&m&lk%*y1vs0nzqpdov)*5$q8*^-f7#-o(fn%yuc=*whkv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
