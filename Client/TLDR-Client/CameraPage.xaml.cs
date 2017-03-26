@@ -152,7 +152,7 @@ namespace TLDR_Client
             var dialog = new Flyout()
             {
                 Content = new WebView() { Source = keyPhrase.url, MaxHeight = RootGrid.ActualHeight, MaxWidth = RootGrid.ActualWidth },
-                Placement = Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode.Bottom,
+                Placement = Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode.Full,
             };
             button.Flyout = dialog;
             button.Flyout.ShowAt(button);
