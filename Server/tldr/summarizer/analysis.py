@@ -81,4 +81,8 @@ def extract_summary(text):
     st = summary_tool.SummaryTool()
     sentences_dic = st.get_senteces_ranks(text)
     summary = st.get_summary(text, sentences_dic)
+
+    if summary == "":
+        return text
+
     return summary
