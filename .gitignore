@@ -1,2 +1,4 @@
 .idea/
 tldr.iml
+/Client/TLDR-Client/obj
+/Client/TLDR-Client/.vs/TLDR-Client/v15
