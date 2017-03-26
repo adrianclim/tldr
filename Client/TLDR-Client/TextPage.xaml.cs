@@ -29,7 +29,7 @@ namespace TLDR_Client
             var requestObjectString = JsonConvert.SerializeObject(requestObject);
             var messageContent = new HttpStringContent(requestObjectString);
             messageContent.Headers.ContentType = new Windows.Web.Http.Headers.HttpMediaTypeHeaderValue("application/json");
-            var message = new HttpRequestMessage(HttpMethod.Post, new Uri("http://159.203.15.127:8000/summarizer/"))
+            var message = new HttpRequestMessage(HttpMethod.Post, ConfigConstants.EndPoint)
             {
                 Content = messageContent
             };

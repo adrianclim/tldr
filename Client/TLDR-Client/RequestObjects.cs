@@ -14,5 +14,6 @@ namespace TLDR_Client
     public class ResponseObject
     {
         public string summary { get; set; }
+        public IEnumerable<KeyPhrase> key_phrases { get; set; }
     }
 }
