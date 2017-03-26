@@ -13,8 +13,13 @@ class AnalysisRunView(APIView):
     Run an Analysis
     """
     def post(self, request):
+        print(request.data + "\n\n")
+
         summary = extract_summary(request.data['content'])
         key_phrases = extract_key_phrases(request.data['content'])
+
+        print("summary: " + summary)
+        print("key phrases: " + ",".join(key_phrases))
 
         web_list = []
         for i in key_phrases:
