@@ -35,8 +35,14 @@ def search_key_phrase(key_phrase):
     response = urlopen(request)
     result = response.read().decode()
     obj = json.loads(result)
-    return {'short': obj['webPages']['value'][0]['name'],
-            'url': obj['webPages']['value'][0]['url']}
+
+    print("Searching key {}".format(key_phrase))
+    print(obj)
+
+    return {
+        'short': obj['webPages']['value'][0]['name'],
+        'url': obj['webPages']['value'][0]['url']
+    }
 
 
 def extract_summary(text):
