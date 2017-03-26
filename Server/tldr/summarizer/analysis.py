@@ -37,7 +37,6 @@ def search_key_phrase(key_phrase):
     obj = json.loads(result)
 
     print("Searching key {}".format(key_phrase))
-    print(obj)
 
     return {
         'short': obj['webPages']['value'][0]['name'],
