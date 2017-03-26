@@ -19,7 +19,7 @@ def extract_key_phrases(text):
 
     response = urlopen(request)
     result = response.read()
-    obj = json.loads(result)
+    obj = json.loads(result)['documents'][0]['keyPhrases']
 
     return obj
 
