@@ -4,3 +4,5 @@ Server/tldr/tldr/secret.py
 /Client/TLDR-Client/obj
 /Client/TLDR-Client/.vs/TLDR-Client/v15
 /Client/TLDR-Client/bin/x86/Debug
+/Client/TLDR-Client/bin/ARM/Release
+*.user
