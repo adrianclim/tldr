@@ -34,7 +34,6 @@ def search_key_phrase(key_phrase):
                       headers=bing_headers)
     response = urlopen(request)
     result = response.read().decode()
-    print(result)
     obj = json.loads(result)
     return {'short': obj['webPages']['value'][0]['name'],
             'url': obj['webPages']['value'][0]['url']}
