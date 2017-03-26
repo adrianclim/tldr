@@ -16,7 +16,7 @@ class AnalysisRunView(APIView):
         print(request.data['content'] + "\n\n")
 
         summary = extract_summary(request.data['content'])
-        key_phrases = extract_key_phrases(request.data['content'])
+        key_phrases = extract_key_phrases(summary)
 
         print("summary: " + summary)
         print("key phrases: " + ",".join(key_phrases))
