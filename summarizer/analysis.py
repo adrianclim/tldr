@@ -68,14 +68,22 @@ def spell_correct(mode, text, threshold):
     print(obj)
 
     summary = text
+    counter = 0
+    outputString = []
 
     if "flaggedTokens" in obj:
         # Incorrect spelling may have been found
         for i in obj["flaggedTokens"]:
             if i["suggestions"][0]["score"] > threshold:
-                summary = summary.replace(i["token"], i["suggestions"][0]["suggestion"])
+                current_offset = int(i["offset"])
+                outputString.append(summary[counter: current_offset])
+                outputString.append(i["suggestions"][0]["suggestion"])
+                counter = current_offset + len(i["token"])
 
-    return summary
+    if counter < len(summary) - 1:
+        outputString.append(summary[counter: len(summary)])
+
+    return "".join(outputString)
 
 
 def extract_summary(text):
