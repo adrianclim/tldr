@@ -25,6 +25,29 @@ namespace TLDR_Client
         public MainPage()
         {
             this.InitializeComponent();
+
+            HamburgerMenu.ItemsSource = HamburgerMenuItem.GetMenuItems();
+        }
+
+        private void HamburgerMenu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var item = e.ClickedItem as HamburgerMenuItem;
+            PageFrame.Navigate(item.Page);
+        }
+    }
+
+    public class HamburgerMenuItem
+    {
+        public Symbol Icon { get; set; }
+        public string Label { get; set; }
+        public Type Page { get; set; }
+
+        static public List<HamburgerMenuItem> GetMenuItems()
+        {
+            var result = new List<HamburgerMenuItem>();
+            result.Add(new HamburgerMenuItem() { Icon = Symbol.Camera, Label = "OCR", Page = typeof(CameraPage) });
+
+            return result;
         }
     }
 }

@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="TLDR_Client.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TLDR_Client"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <DataTemplate x:Key="HamburgerItemTemplate" x:DataType="local:HamburgerMenuItem">
+            <Grid Width="240" Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <SymbolIcon Grid.Column="0" Symbol="{x:Bind Icon, Mode=OneWay}" />
+                <TextBlock Grid.Column="1" Text="{x:Bind Label, Mode=OneWay}" VerticalAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <controls:HamburgerMenu x:Name="HamburgerMenu"
+                                ItemClick="HamburgerMenu_ItemClick"
+                                ItemTemplate="{StaticResource HamburgerItemTemplate}" >
+            <Frame x:Name="PageFrame" />
+        </controls:HamburgerMenu>
+    </Grid>
+</Page>
