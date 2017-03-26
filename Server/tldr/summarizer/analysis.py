@@ -1,23 +1,31 @@
-import http.client, urllib.request, urllib.parse, urllib.error, base64
+from tldr import secret
+from urllib.request import Request, urlopen
+import json
+from summarizer import summary_tool
 
 
-headers = {
-    # Request headers
-    'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '{subscription key}',
-}
+AZURE_URL = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases"
 
-params = urllib.parse.urlencode({
-    # Request parameters
-    'numberOfLanguagesToDetect': '{integer}',
-})
+headers = {'Content-Type': 'application/json', 'Ocp-Apim-Subscription-Key': secret.AZURE_SUB_KEY}
 
-try:
-    conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
-    conn.request("POST", "/text/analytics/v2.0/languages?%s" % params, "{body}", headers)
-    response = conn.getresponse()
-    data = response.read()
-    print(data)
-    conn.close()
-except Exception as e:
-    print("[Errno {0}] {1}".format(e.errno, e.strerror))
+
+def extract_key_phrases(text):
+    input_text = {"documents": [{"id": "1", "text": text}]}
+
+    # Detect key phrases.
+    request = Request(AZURE_URL,
+                      data=json.dumps(input_text).encode('utf-8'),
+                      headers=headers)
+
+    response = urlopen(request)
+    result = response.read()
+    obj = json.loads(result)
+
+    return obj
+
+
+def extract_summary(title, text):
+    st = summary_tool.SummaryTool()
+    sentences_dic = st.get_senteces_ranks(text)
+    summary = st.get_summary(title, text, sentences_dic)
+    return summary

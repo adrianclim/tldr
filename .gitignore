@@ -1,5 +1,5 @@
 .idea/
 tldr.iml
-Server/tldr/tldr/secrets.py
+Server/tldr/tldr/secret.py
 /Client/TLDR-Client/obj
 /Client/TLDR-Client/.vs/TLDR-Client/v15
