@@ -38,10 +38,16 @@ def search_key_phrase(key_phrase):
 
     print("Searching key {}".format(key_phrase))
 
-    return {
-        'short': obj['webPages']['value'][0]['name'],
-        'url': obj['webPages']['value'][0]['url']
-    }
+    if len(obj) <= 0:
+        return {
+            'short': "Not Found",
+            'url': "Not Found"
+        }
+    else:
+        return {
+            'short': obj['webPages']['value'][0]['name'],
+            'url': obj['webPages']['value'][0]['url']
+        }
 
 
 def extract_summary(text):
