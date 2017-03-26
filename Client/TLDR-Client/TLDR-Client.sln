@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TLDR-Client", "TLDR-Client.csproj", "{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Debug|ARM.ActiveCfg = Debug|ARM
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Debug|ARM.Build.0 = Debug|ARM
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Debug|ARM.Deploy.0 = Debug|ARM
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Debug|x64.ActiveCfg = Debug|x64
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Debug|x64.Build.0 = Debug|x64
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Debug|x64.Deploy.0 = Debug|x64
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Debug|x86.ActiveCfg = Debug|x86
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Debug|x86.Build.0 = Debug|x86
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Debug|x86.Deploy.0 = Debug|x86
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Release|ARM.ActiveCfg = Release|ARM
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Release|ARM.Build.0 = Release|ARM
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Release|ARM.Deploy.0 = Release|ARM
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Release|x64.ActiveCfg = Release|x64
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Release|x64.Build.0 = Release|x64
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Release|x64.Deploy.0 = Release|x64
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Release|x86.ActiveCfg = Release|x86
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Release|x86.Build.0 = Release|x86
+		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
