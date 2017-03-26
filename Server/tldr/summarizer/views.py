@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from summarizer.analysis import extract_summary, extract_key_phrases
+from summarizer.analysis import extract_summary
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 
@@ -13,5 +13,5 @@ class AnalysisRunView(APIView):
     Run an Analysis
     """
     def post(self, request):
-        print(request.data)
-        return Response()
+        summary = extract_summary("", request.data['content'])
+        return Response({'summary': summary})
