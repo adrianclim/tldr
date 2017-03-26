@@ -103,6 +103,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestObjects.cs" />
     <Compile Include="TextPage.xaml.cs">
       <DependentUpon>TextPage.xaml</DependentUpon>
     </Compile>
