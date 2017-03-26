@@ -24,13 +24,13 @@
         <controls:GridSplitter Grid.Column="1" Grid.RowSpan="2" Width="33" Background="Gray" ResizeBehavior="BasedOnAlignment">
             <controls:GridSplitter.Element>
                 <Grid>
-                    <Button Content=">" Foreground="LightGray" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                    <Button Content=">" Foreground="LightGray" VerticalAlignment="Center" HorizontalAlignment="Stretch" Click="Button_Click"/>
                 </Grid>
             </controls:GridSplitter.Element>
         </controls:GridSplitter>
 
         <TextBlock Grid.Column="2" Grid.Row="0" Text="Summarized Text" Margin="5, 5, 5, 0" FontSize="22" />
         <TextBox x:Name="SummarizedText" Grid.Column="2" Grid.Row="1" Margin="5, 5, 5, 5" IsReadOnly="True" />
-        <ProgressBar x:Name="ProgressBar" Grid.Column="2" Grid.Row="1" Margin="5, 0, 5, 0" IsIndeterminate="True" />
+        <ProgressBar x:Name="ProgressBar" Grid.Column="2" Grid.Row="1" Margin="5, 0, 5, 0" IsIndeterminate="True" Visibility="Collapsed"/>
     </Grid>
 </Page>
