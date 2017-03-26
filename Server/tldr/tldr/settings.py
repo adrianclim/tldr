@@ -133,4 +133,4 @@ REST_FRAMEWORK = {
     ]
 }
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
