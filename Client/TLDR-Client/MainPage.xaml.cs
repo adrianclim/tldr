@@ -33,10 +33,11 @@ namespace TLDR_Client
 
         static public List<HamburgerMenuItem> GetMenuItems()
         {
-            var result = new List<HamburgerMenuItem>();
-            result.Add(new HamburgerMenuItem() { Icon = Symbol.Camera, Label = "OCR", Page = typeof(CameraPage) });
-            result.Add(new HamburgerMenuItem() { Icon = Symbol.Page, Label = "Text", Page = typeof(TextPage) });
-
+            var result = new List<HamburgerMenuItem>
+            {
+                new HamburgerMenuItem() { Icon = Symbol.Camera, Label = "OCR", Page = typeof(CameraPage) },
+                new HamburgerMenuItem() { Icon = Symbol.Page, Label = "Text", Page = typeof(TextPage) }
+            };
             return result;
         }
     }

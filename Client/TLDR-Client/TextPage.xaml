@@ -30,7 +30,7 @@
         </controls:GridSplitter>
 
         <TextBlock Grid.Column="2" Grid.Row="0" Text="Summarized Text" Margin="5, 5, 5, 0" FontSize="22" />
-        <TextBox x:Name="SummarizedText" Grid.Column="2" Grid.Row="1" Margin="5, 5, 5, 5" IsReadOnly="True" />
+        <TextBox x:Name="SummarizedText" Grid.Column="2" Grid.Row="1" Margin="5, 5, 5, 5" IsReadOnly="True" TextWrapping="Wrap"/>
         <ProgressBar x:Name="ProgressBar" Grid.Column="2" Grid.Row="1" Margin="5, 0, 5, 0" IsIndeterminate="True" Visibility="Collapsed"/>
     </Grid>
 </Page>

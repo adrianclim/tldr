@@ -4,9 +4,35 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <CaptureElement x:Name="PreviewElement" Stretch="UniformToFill" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <CaptureElement x:Name="PreviewElement" Grid.Column="0" Grid.RowSpan="2" Stretch="UniformToFill" />
+        <Image x:Name="ResultImage" Grid.Column="0" Grid.RowSpan="2" Stretch="UniformToFill" HorizontalAlignment="Center" Visibility="Collapsed" />
+        <Grid x:Name="ResultGrid" Grid.Column="0" Grid.RowSpan="2" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        
+        
+        <controls:GridSplitter Grid.Column="1" Grid.RowSpan="2" Width="33" Background="Gray" ResizeBehavior="BasedOnAlignment">
+            <controls:GridSplitter.Element>
+                <Grid>
+                    <Button Content=">" Foreground="LightGray" VerticalAlignment="Center" HorizontalAlignment="Stretch" Click="Button_Click"/>
+                </Grid>
+            </controls:GridSplitter.Element>
+        </controls:GridSplitter>
+
+        <TextBlock x:Name="SummarizedTextBlock" Grid.Column="2" Grid.Row="0" Text="Summarized Text" Margin="5, 5, 5, 0" FontSize="22" Visibility="Collapsed"/>
+        <TextBox x:Name="SummarizedText" Grid.Column="2" Grid.Row="1" Margin="5, 5, 5, 5" IsReadOnly="True" Visibility="Collapsed" TextWrapping="Wrap"/>
+        <ProgressBar x:Name="ProgressBar" Grid.Column="2" Grid.Row="1" Margin="5, 0, 5, 0" IsIndeterminate="True" Visibility="Collapsed"/>
     </Grid>
 </Page>

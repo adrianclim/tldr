@@ -28,7 +28,8 @@ namespace TLDR_Client
             var requestObject = new RequestObject() { content = OriginalText.Text };
             var requestObjectString = JsonConvert.SerializeObject(requestObject);
             var messageContent = new HttpStringContent(requestObjectString);
-            var message = new HttpRequestMessage(HttpMethod.Post, new System.Uri("127.0.0.1"))
+            messageContent.Headers.ContentType = new Windows.Web.Http.Headers.HttpMediaTypeHeaderValue("application/json");
+            var message = new HttpRequestMessage(HttpMethod.Post, new Uri("http://159.203.15.127:8000/summarizer/"))
             {
                 Content = messageContent
             };
@@ -37,8 +38,8 @@ namespace TLDR_Client
 
             var responseString = await response.Content.ReadAsStringAsync();
             var responseObject = JsonConvert.DeserializeObject<ResponseObject>(responseString);
-            SummarizedText.Text = responseObject.summary;
 
+            SummarizedText.Text = responseObject.summary;
             SummarizedText.IsEnabled = true;
             ProgressBar.Visibility = Visibility.Collapsed;
         }
