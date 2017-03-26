@@ -6,3 +6,5 @@ Server/tldr/tldr/secret.py
 /Client/TLDR-Client/bin/x86/Debug
 /Client/TLDR-Client/bin/ARM/Release
 *.user
+/Client/TLDR-Client/bin/x86/Release/ilc
+/Client/TLDR-Client/bin/x86/Release
