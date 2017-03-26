@@ -21,9 +21,7 @@ def extract_key_phrases(text):
 
     response = urlopen(request)
     result = response.read().decode()
-    print(result)
     obj = json.loads(result)
-    print(obj)
     output = obj['documents'][0]['keyPhrases']
 
     return output
@@ -35,7 +33,8 @@ def search_key_phrase(key_phrase):
     request = Request(complete_url,
                       headers=bing_headers)
     response = urlopen(request)
-    result = response.read()
+    result = response.read().decode()
+    print(result)
     obj = json.loads(result)
     return {'short': obj['webPages']['value'][0]['name'],
             'url': obj['webPages']['value'][0]['url']}
