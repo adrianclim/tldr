@@ -21,9 +21,12 @@ def extract_key_phrases(text):
 
     response = urlopen(request)
     result = response.read().decode()
-    obj = json.loads(result)['documents'][0]['keyPhrases']
+    print(result)
+    obj = json.loads(result)
+    print(obj)
+    output = obj['documents'][0]['keyPhrases']
 
-    return obj
+    return output
 
 
 def search_key_phrase(key_phrase):
