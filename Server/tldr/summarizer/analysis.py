@@ -6,9 +6,11 @@ from summarizer import summary_tool
 
 AZURE_URL = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases"
 BING_URL = "https://api.cognitive.microsoft.com/bing/v5.0/search"
+SPELL_URL = "https://api.cognitive.microsoft.com/bing/v5.0/spellcheck/"
 
 headers = {'Content-Type': 'application/json', 'Ocp-Apim-Subscription-Key': secret.AZURE_SUB_KEY}
 bing_headers = {'Content-Type': 'application/json', 'Ocp-Apim-Subscription-Key': secret.BING_SUB_KEY}
+spell_headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Ocp-Apim-Subscription-Key': secret.SPELL_SUB_KEY}
 
 
 def extract_key_phrases(text):
@@ -35,12 +37,52 @@ def search_key_phrase(key_phrase):
     response = urlopen(request)
     result = response.read().decode()
     obj = json.loads(result)
-    return {'short': obj['webPages']['value'][0]['name'],
-            'url': obj['webPages']['value'][0]['url']}
+
+    print("Searching key {}".format(key_phrase))
+
+    if len(obj) <= 0:
+        return {
+            'short': "Not Found",
+            'url': "Not Found"
+        }
+    else:
+        return {
+            'short': obj['webPages']['value'][0]['name'],
+            'url': obj['webPages']['value'][0]['url']
+        }
 
 
-def extract_summary(title, text):
+def spell_correct(mode, text, threshold):
+    spell_url = SPELL_URL + "?mode={}".format(mode)
+
+    input_text = "Text={}".format(text)
+
+    request = Request(spell_url,
+                      data=input_text.encode("utf-8"),
+                      headers=spell_headers)
+
+    response = urlopen(request)
+    result = response.read().decode()
+    obj = json.loads(result)
+    print(obj)
+
+    summary = text
+
+    if "flaggedTokens" in obj:
+        # Incorrect spelling may have been found
+        for i in obj["flaggedTokens"]:
+            if i["suggestions"][0]["score"] > threshold:
+                summary = summary.replace(i["token"], i["suggestions"][0]["suggestion"])
+
+    return summary
+
+
+def extract_summary(text):
     st = summary_tool.SummaryTool()
     sentences_dic = st.get_senteces_ranks(text)
-    summary = st.get_summary(title, text, sentences_dic)
+    summary = st.get_summary(text, sentences_dic)
+
+    if summary == "":
+        return text
+
     return summary

@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from summarizer.analysis import extract_summary, extract_key_phrases, search_key_phrase
+from summarizer.analysis import extract_summary, extract_key_phrases, search_key_phrase, spell_correct
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 
@@ -13,8 +13,16 @@ class AnalysisRunView(APIView):
     Run an Analysis
     """
     def post(self, request):
-        summary = extract_summary("", request.data['content'])
-        key_phrases = extract_key_phrases(request.data['content'])
+        print(request.data['content'] + "\n\n")
+
+        corrected_text = spell_correct("proof", request.data['content'], 0.7)
+        print(corrected_text + "\n\n")
+
+        summary = extract_summary(corrected_text)
+        key_phrases = extract_key_phrases(summary)
+
+        print("summary: " + summary)
+        print("key phrases: " + ",".join(key_phrases))
 
         web_list = []
         for i in key_phrases:
