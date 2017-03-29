@@ -8,3 +8,5 @@ Server/tldr/tldr/secret.py
 *.user
 /Client/TLDR-Client/bin/x86/Release/ilc
 /Client/TLDR-Client/bin/x86/Release
+/summarizer/__pycache__
+/tldr/__pycache__

@@ -1,0 +1,2 @@
+﻿http://159.203.15.127:8000/api/summarize
+http://localhost:8000/api/summarize
