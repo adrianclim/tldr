@@ -2402,6 +2402,9 @@
             "rid": "win10-x86"
           }
         }
+      },
+      "FindMainParagraph/1.0.0": {
+        "type": "project"
       }
     },
     "UAP,Version=v10.0/win10-arm": {
@@ -4857,6 +4860,9 @@
         "native": {
           "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
         }
+      },
+      "FindMainParagraph/1.0.0": {
+        "type": "project"
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
@@ -7351,6 +7357,9 @@
         "native": {
           "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
         }
+      },
+      "FindMainParagraph/1.0.0": {
+        "type": "project"
       }
     },
     "UAP,Version=v10.0/win10-x64": {
@@ -9815,6 +9824,9 @@
         "native": {
           "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
         }
+      },
+      "FindMainParagraph/1.0.0": {
+        "type": "project"
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
@@ -12318,6 +12330,9 @@
         "native": {
           "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
         }
+      },
+      "FindMainParagraph/1.0.0": {
+        "type": "project"
       }
     },
     "UAP,Version=v10.0/win10-x86": {
@@ -14782,6 +14797,9 @@
         "native": {
           "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
         }
+      },
+      "FindMainParagraph/1.0.0": {
+        "type": "project"
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
@@ -17285,6 +17303,9 @@
         "native": {
           "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
         }
+      },
+      "FindMainParagraph/1.0.0": {
+        "type": "project"
       }
     }
   },
@@ -26027,6 +26048,11 @@
         "win2d.uwp.1.19.0.nupkg.sha512",
         "win2d.uwp.nuspec"
       ]
+    },
+    "FindMainParagraph/1.0.0": {
+      "type": "project",
+      "path": "../FindMainParagraph/FindMainParagraph.vcxproj",
+      "msbuildProject": "../FindMainParagraph/FindMainParagraph.vcxproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -26047,7 +26073,16 @@
       "projectName": "TLDR-Client",
       "projectPath": "C:\\Users\\ThaiNguyen\\Documents\\Visual Studio 2017\\Projects\\TLDR\\tldr\\Client\\TLDR-Client\\TLDR-Client.csproj",
       "projectJsonPath": "C:\\Users\\ThaiNguyen\\Documents\\Visual Studio 2017\\Projects\\TLDR\\tldr\\Client\\TLDR-Client\\project.json",
-      "projectStyle": "ProjectJson"
+      "projectStyle": "ProjectJson",
+      "frameworks": {
+        "uap10.0": {
+          "projectReferences": {
+            "C:\\Users\\ThaiNguyen\\Documents\\Visual Studio 2017\\Projects\\TLDR\\tldr\\Client\\FindMainParagraph\\FindMainParagraph.vcxproj": {
+              "projectPath": "C:\\Users\\ThaiNguyen\\Documents\\Visual Studio 2017\\Projects\\TLDR\\tldr\\Client\\FindMainParagraph\\FindMainParagraph.vcxproj"
+            }
+          }
+        }
+      }
     },
     "dependencies": {
       "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.1",

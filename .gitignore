@@ -10,3 +10,7 @@ Server/tldr/tldr/secret.py
 /Client/TLDR-Client/bin/x86/Release
 /summarizer/__pycache__
 /tldr/__pycache__
+/Client/FindMainParagraph/Debug
+/Client/TLDR-Client/Debug/FindMainParagraph
+/Client/TLDR-Client/packages
+/Client/TLDR-Client/Release/FindMainParagraph

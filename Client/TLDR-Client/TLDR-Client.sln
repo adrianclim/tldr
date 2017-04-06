@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26228.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TLDR-Client", "TLDR-Client.csproj", "{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FindMainParagraph", "..\FindMainParagraph\FindMainParagraph.vcxproj", "{FAA3F01B-9CB1-4612-A464-BCB41FEC6D0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,18 @@ Global
 		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Release|x86.ActiveCfg = Release|x86
 		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Release|x86.Build.0 = Release|x86
 		{862A2E2E-2FB3-4B51-84C1-4EC3EE5C9630}.Release|x86.Deploy.0 = Release|x86
+		{FAA3F01B-9CB1-4612-A464-BCB41FEC6D0F}.Debug|ARM.ActiveCfg = Debug|ARM
+		{FAA3F01B-9CB1-4612-A464-BCB41FEC6D0F}.Debug|ARM.Build.0 = Debug|ARM
+		{FAA3F01B-9CB1-4612-A464-BCB41FEC6D0F}.Debug|x64.ActiveCfg = Debug|x64
+		{FAA3F01B-9CB1-4612-A464-BCB41FEC6D0F}.Debug|x64.Build.0 = Debug|x64
+		{FAA3F01B-9CB1-4612-A464-BCB41FEC6D0F}.Debug|x86.ActiveCfg = Debug|Win32
+		{FAA3F01B-9CB1-4612-A464-BCB41FEC6D0F}.Debug|x86.Build.0 = Debug|Win32
+		{FAA3F01B-9CB1-4612-A464-BCB41FEC6D0F}.Release|ARM.ActiveCfg = Release|ARM
+		{FAA3F01B-9CB1-4612-A464-BCB41FEC6D0F}.Release|ARM.Build.0 = Release|ARM
+		{FAA3F01B-9CB1-4612-A464-BCB41FEC6D0F}.Release|x64.ActiveCfg = Release|x64
+		{FAA3F01B-9CB1-4612-A464-BCB41FEC6D0F}.Release|x64.Build.0 = Release|x64
+		{FAA3F01B-9CB1-4612-A464-BCB41FEC6D0F}.Release|x86.ActiveCfg = Release|Win32
+		{FAA3F01B-9CB1-4612-A464-BCB41FEC6D0F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

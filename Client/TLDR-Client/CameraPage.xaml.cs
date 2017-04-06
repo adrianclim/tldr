@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using Windows.Web.Http;
 
+
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace TLDR_Client
@@ -67,17 +68,21 @@ namespace TLDR_Client
 
                 EnableResultPane();
 
-                var ocrEngine = OcrEngine.TryCreateFromUserProfileLanguages();
-                var ocrResult = await ocrEngine.RecognizeAsync(frame.Frame.SoftwareBitmap);
+                var bitmap = TLDR.FindMainParagraph.ExtractMainParagraph(frame.Frame.SoftwareBitmap);
 
-                await ShowResultImage(frame);
+                var ocrEngine = OcrEngine.TryCreateFromUserProfileLanguages();
+                var ocrResult = await ocrEngine.RecognizeAsync(bitmap);
+
+                await ShowResultImage(bitmap);
                 var client = new HttpClient();
                 var requestObject = new RequestObject() { content = ocrResult.Text };
 
                 var requestObjectString = JsonConvert.SerializeObject(requestObject);
 
-                var dataWriter = new DataWriter();
-                dataWriter.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
+                var dataWriter = new DataWriter()
+                {
+                    UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8
+                };
                 dataWriter.WriteString(requestObjectString);
                 var buffer = dataWriter.DetachBuffer();
 
@@ -158,7 +163,7 @@ namespace TLDR_Client
             button.Flyout.ShowAt(button);
         }
 
-        private async System.Threading.Tasks.Task ShowResultImage(CapturedPhoto frame)
+        private async System.Threading.Tasks.Task ShowResultImage(SoftwareBitmap frame)
         {
             SoftwareBitmapSource imageSource = await GetImageSourceFromCapturedFrame(frame);
 
@@ -167,10 +172,10 @@ namespace TLDR_Client
             PreviewElement.Visibility = Visibility.Collapsed;
         }
 
-        private static async System.Threading.Tasks.Task<SoftwareBitmapSource> GetImageSourceFromCapturedFrame(CapturedPhoto frame)
+        private static async System.Threading.Tasks.Task<SoftwareBitmapSource> GetImageSourceFromCapturedFrame(SoftwareBitmap frame)
         {
             var imageSource = new SoftwareBitmapSource();
-            var bitmap = SoftwareBitmap.Convert(frame.Frame.SoftwareBitmap, BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
+            var bitmap = SoftwareBitmap.Convert(frame, BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
             await imageSource.SetBitmapAsync(bitmap);
             return imageSource;
         }
