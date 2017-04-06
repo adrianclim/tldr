@@ -100,6 +100,9 @@
       <DependentUpon>CameraPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConfigConstants.cs" />
+    <Compile Include="ImagePage.xaml.cs">
+      <DependentUpon>ImagePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="KeyPhrase.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -136,6 +139,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="CameraPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImagePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
