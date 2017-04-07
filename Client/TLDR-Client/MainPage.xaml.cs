@@ -36,7 +36,8 @@ namespace TLDR_Client
             var result = new List<HamburgerMenuItem>
             {
                 new HamburgerMenuItem() { Icon = Symbol.Camera, Label = "OCR", Page = typeof(CameraPage) },
-                new HamburgerMenuItem() { Icon = Symbol.Page, Label = "Text", Page = typeof(TextPage) }
+                new HamburgerMenuItem() { Icon = Symbol.Page, Label = "Text", Page = typeof(TextPage) },
+                new HamburgerMenuItem() { Icon = Symbol.BrowsePhotos, Label = "Photo", Page = typeof(ImagePage) }
             };
             return result;
         }

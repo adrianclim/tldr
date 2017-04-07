@@ -14,9 +14,26 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="BrowseButton" Content="Browse..." Grid.Row="0" Grid.Column="0" Click="BrowseButtonClick" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Image x:Name="Original" Grid.Row="0" Grid.Column="0" Stretch="UniformToFill"/>
+            <Image x:Name="Eroded" Grid.Row="0" Grid.Column="1" Stretch="UniformToFill"/>
+            <Image x:Name="Contours" Grid.Row="1" Grid.Column="0" Stretch="UniformToFill"/>
+            <Image x:Name="Final" Grid.Row="1" Grid.Column="1" Stretch="UniformToFill"/>
+        </Grid>
+
+        <Grid Grid.Column="1">
             
         </Grid>
-        
         
     </Grid>
 </Page>
